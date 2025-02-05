@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Marvel React Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project demonstrates React best practices using Zustand for state management, React Router for navigation, and Tailwind for styling. The app fetches Marvel characters and displays them beautifully with a clean UI.
 
-Currently, two official plugins are available:
+## Tech Stack
+- React 18
+- Zustand 4
+- TypeScript 5
+- Tailwind CSS 3
+- Axios 1.6
+- Jest + React Testing Library
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Performance Optimizations
+- Code Splitting & Lazy Loading
+- Memoization using `useMemo`
+- Zustand selectors to minimize re-renders
 
-## Expanding the ESLint configuration
+## Accessibility Features
+- ARIA roles for screen readers
+- `aria-live="polite"` for dynamic content updates
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Folder Structure
+- `components/`: Reusable UI components with dedicated folders for tests
+- `pages/`: Page components with integrated tests
+- `store/`: Zustand store for API state management
+- `services/`: API handling with Axios
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## How to Run
+```sh
+yarn install
+yarn dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Running Tests
+```sh
+yarn test
+```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Environment Variables
+Create a `.env` file in the root directory and set the API base URL and Marvel API key:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```
+REACT_APP_API_BASE_URL=https://gateway.marvel.com/v1/public
+REACT_APP_MARVEL_API_KEY=your_marvel_api_key_here
 ```

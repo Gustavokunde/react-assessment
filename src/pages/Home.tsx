@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useMarvelStore } from '../store/marvelStore';
-import CharacterCard from '../components/CharacterCard';
-import Loader from '../components/Loader';
+import React, { useEffect } from "react";
+import CharacterCard from "../components/CharacterCard";
+import Loader from "../components/Loader";
+import { useMarvelStore } from "../store/marvelStore";
 
 export default function Home() {
   const { characters, fetchCharacters, loading, error } = useMarvelStore();

@@ -12,12 +12,15 @@ const mockCharacter = {
 
 test("renders character card with name and description", () => {
   render(<CharacterCard character={mockCharacter} />);
-  expect(screen.getByRole("article")).toHaveAttribute(
-    "aria-label",
+
+  expect(screen.getByRole("img", { name: /Spider-Man/i })).toHaveAttribute(
+    "alt",
     "Spider-Man"
   );
-  expect(screen.getByText("Spider-Man")).toBeInTheDocument();
+
   expect(
-    screen.getByText("A hero with spider-like abilities.")
+    screen.getByText((content) =>
+      content.includes("A hero with spider-like abilities.")
+    )
   ).toBeInTheDocument();
 });
